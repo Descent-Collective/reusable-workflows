@@ -43,13 +43,6 @@ jobs:
       - name: "Build the contracts"
         run: "forge build"
 
-      - name: "Cache the contracts and the node modules so that they can be re-used by the other jobs"
-        if: ${{ inputs.save-cache }}
-        uses: "actions/cache/save@v3"
-        with:
-          key: "build-and-modules-${{ github.sha }}"
-          path: ${{ inputs.cache-path }}
-
       - name: "Prepare the contract artifacts"
         if: ${{ inputs.store-artifacts }}
         run: "./shell/prepare-artifacts.sh"
