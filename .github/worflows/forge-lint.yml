@@ -1,0 +1,21 @@
+name: "Lint a Forge project"
+
+on: "workflow_call"
+
+jobs:
+  forge-lint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v4"
+
+      - name: "Install Foundry"
+        uses: "foundry-rs/foundry-toolchain@v1"
+
+      - name: "Lint the code"
+        run: "forge fmt"
+
+      - name: "Lint summary"
+        run: |
+          echo "## Lint result" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
