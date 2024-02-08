@@ -35,6 +35,9 @@ jobs:
       - name: "Show the Forge config"
         run: "forge config"
 
+      - name: "Install Forge Libraries"
+        run: "forge install"
+
       - name: "Build the contracts"
         run: "forge build"
 
