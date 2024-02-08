@@ -35,11 +35,8 @@ jobs:
       - name: "Show the Forge config"
         run: "forge config"
 
-      - name: "Build the production contracts"
-        run: "FOUNDRY_PROFILE=optimized forge build"
-
-      - name: "Build the test contracts"
-        run: "FOUNDRY_PROFILE=test-optimized forge build"
+      - name: "Build the contracts"
+        run: "forge build"
 
       - name: "Cache the contracts and the node modules so that they can be re-used by the other jobs"
         if: ${{ inputs.save-cache }}
